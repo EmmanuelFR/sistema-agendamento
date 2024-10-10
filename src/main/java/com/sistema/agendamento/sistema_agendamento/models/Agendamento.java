@@ -1,8 +1,8 @@
 package com.sistema.agendamento.sistema_agendamento.models;
 
 import jakarta.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
+// import java.sql.Time;
 
 @Entity
 @Table(name = "agendamentos")
@@ -10,6 +10,7 @@ public class Agendamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "agendamento_id")
     private Long id;
 
     @ManyToOne
@@ -17,11 +18,11 @@ public class Agendamento {
     private Aluno aluno;
 
     @ManyToOne
-    @JoinColumn(name = "agendamento_id")
+    @JoinColumn(name = "prova_id")
     private Prova prova;
 
-    private Date dataAgendamento;
-    private Time horaAgendamento;
+    private Date data;
+    //private Time horaAgendamento;
 
     @ManyToOne
     @JoinColumn(name = "reagendamento_id")
@@ -52,21 +53,21 @@ public class Agendamento {
         this.prova = prova;
     }
 
-    public Date getDataAgendamento() {
-        return dataAgendamento;
+    public Date getData() {
+        return data;
     }
 
-    public void setDataAgendamento(Date dataAgendamento) {
-        this.dataAgendamento = dataAgendamento;
+    public void setData(Date data) {
+        this.data = data;
     }
 
-    public Time getHoraAgendamento() {
-        return horaAgendamento;
-    }
+    // public Time getHoraAgendamento() {
+    //     return horaAgendamento;
+    // }
 
-    public void setHoraAgendamento(Time horaAgendamento) {
-        this.horaAgendamento = horaAgendamento;
-    }
+    // public void setHoraAgendamento(Time horaAgendamento) {
+    //     this.horaAgendamento = horaAgendamento;
+    // }
 
     public Agendamento getReagendamento() {
         return reagendamento;

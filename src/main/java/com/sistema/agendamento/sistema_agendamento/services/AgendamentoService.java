@@ -33,8 +33,8 @@ public class AgendamentoService {
     public Agendamento reagendarProva(Long agendamentoId, Agendamento novoAgendamento) {
         Agendamento agendamentoExistente = agendamentoRepository.findById(agendamentoId)
                 .orElseThrow(() -> new IllegalArgumentException("Agendamento não encontrado"));
-        agendamentoExistente.setDataAgendamento(novoAgendamento.getDataAgendamento());
-        agendamentoExistente.setHoraAgendamento(novoAgendamento.getHoraAgendamento());
+        agendamentoExistente.setData(novoAgendamento.getData());
+        // agendamentoExistente.setHoraAgendamento(novoAgendamento.getHoraAgendamento());
         return agendamentoRepository.save(agendamentoExistente);
     }
     

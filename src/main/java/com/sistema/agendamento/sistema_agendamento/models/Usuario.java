@@ -1,4 +1,4 @@
-package com.sistema.agendamento.sistema_agendamento.models;
+    package com.sistema.agendamento.sistema_agendamento.models;
 
 import jakarta.persistence.*;
 
@@ -13,7 +13,11 @@ public class Usuario {
     private Long id;
 
     private String nome;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
     private String senha;
 
     @Enumerated(EnumType.STRING)
