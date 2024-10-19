@@ -22,13 +22,26 @@ public class Agendamento {
     private Prova prova;
 
     private Date data;
-    //private Time horaAgendamento;
+    
+    @Column(name = "disciplina")  // Adiciona a disciplina
+    private String disciplina;
 
     @ManyToOne
     @JoinColumn(name = "reagendamento_id")
     private Agendamento reagendamento;  // Referencia a si mesma
 
+    @Column(name = "cancelado", nullable = false)
+    private boolean cancelado = false; // Por padrão, não cancelado
+
     // Getters e Setters
+    public boolean isCancelado() {
+        return cancelado;
+    }
+
+    public void setCancelado(boolean cancelado) {
+        this.cancelado = cancelado;
+    }
+    
     public Long getId() {
         return id;
     }
@@ -61,13 +74,13 @@ public class Agendamento {
         this.data = data;
     }
 
-    // public Time getHoraAgendamento() {
-    //     return horaAgendamento;
-    // }
+    public String getDisciplina() {
+        return disciplina;
+    }
 
-    // public void setHoraAgendamento(Time horaAgendamento) {
-    //     this.horaAgendamento = horaAgendamento;
-    // }
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
+    }
 
     public Agendamento getReagendamento() {
         return reagendamento;
