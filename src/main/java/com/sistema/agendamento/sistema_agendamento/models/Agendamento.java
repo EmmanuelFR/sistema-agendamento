@@ -1,6 +1,10 @@
 package com.sistema.agendamento.sistema_agendamento.models;
 
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 // import java.sql.Time;
 
@@ -21,19 +25,33 @@ public class Agendamento {
     @JoinColumn(name = "prova_id")
     private Prova prova;
 
-    private Date data;
-    
+    @Future(message = "A data do agendamento deve ser futura")
+    // private Date data;
+    private LocalDateTime data;
+
     @Column(name = "disciplina")  // Adiciona a disciplina
     private String disciplina;
 
     @ManyToOne
     @JoinColumn(name = "reagendamento_id")
-    private Agendamento reagendamento;  // Referencia a si mesma
+    private Agendamento reagendamento; // Referencia a si mesma
 
     @Column(name = "cancelado", nullable = false)
     private boolean cancelado = false; // Por padrão, não cancelado
 
+    @ManyToOne
+    @JoinColumn(name = "agendamento_original_id")
+    private Agendamento agendamentoOriginal;
+
     // Getters e Setters
+    public Agendamento getAgendamentoOriginal() {
+        return agendamentoOriginal;
+    }
+
+    public void setAgendamentoOriginal(Agendamento agendamentoOriginal) {
+        this.agendamentoOriginal = agendamentoOriginal;
+    }
+
     public boolean isCancelado() {
         return cancelado;
     }
@@ -66,11 +84,19 @@ public class Agendamento {
         this.prova = prova;
     }
 
-    public Date getData() {
+    // public Date getData() {
+    //     return data;
+    // }
+
+    // public void setData(Date data) {
+    //     this.data = data;
+    // }
+
+    public LocalDateTime getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 
