@@ -27,14 +27,17 @@ public class AgendamentoController {
 
     // Reagendar prova e cancelar agendamento anterior
     @PutMapping("/reagendar/{id}")
-    public ResponseEntity<?> reagendarProva(@PathVariable Long id, @RequestBody Agendamento novoAgendamento) {
-        // Verifica o limite de agendamentos para o novo horário
-        if (agendamentoService.isHorarioLotado(novoAgendamento.getDataHora())) {
-            return ResponseEntity.badRequest().body("Horário já está cheio. Tente outro horário.");
-        }
-        Agendamento agendamentoReagendado = agendamentoService.reagendarProva(id, novoAgendamento);
-        return ResponseEntity.ok(agendamentoReagendado);
+public ResponseEntity<Agendamento> salvarReagendamento(@PathVariable Long id, @RequestBody Agendamento novoAgendamento) {
+    // Verifica se o novo horário não está lotado
+    if (agendamentoService.isHorarioLotado(novoAgendamento.getDataHora())) {
+        return ResponseEntity.badRequest().body(null);  // Horário já lotado
     }
+
+    // Realiza o reagendamento
+    Agendamento agendamentoReagendado = agendamentoService.reagendarProva(id, novoAgendamento);
+    return ResponseEntity.ok(agendamentoReagendado);
+}
+
 
     // Lista todos os agendamentos
     @GetMapping

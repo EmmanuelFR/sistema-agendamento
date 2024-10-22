@@ -13,18 +13,19 @@ public class Agendamento {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "aluno_id")
+    @JoinColumn(name = "aluno_id", nullable = false)
     private Aluno aluno;
 
-    @Column(name = "disciplina")
+    @Column(name = "disciplina", nullable = false)
     private String disciplina;
 
     @Column(name = "data_hora", nullable = false)
     private LocalDateTime dataHora;  // Captura data e hora juntos
 
+    // Chave estrangeira que referencia o agendamento anterior, em caso de reagendamento
     @ManyToOne
-    @JoinColumn(name = "reagendamento_id")
-    private Agendamento reagendamento;  // Referencia o agendamento anterior (se houver reagendamento)
+    @JoinColumn(name = "reagendamento_id", nullable = true)
+    private Agendamento reagendamento;  
 
     @Column(name = "cancelado", nullable = false)
     private boolean cancelado = false;  // Indica se o agendamento foi cancelado

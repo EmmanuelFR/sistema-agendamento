@@ -14,21 +14,14 @@ public class AgendamentoService {
     @Autowired
     private AgendamentoRepository agendamentoRepository;
 
-    private static final int LIMITE_VAGAS = 2; // Limite máximo de agendamentos por horário
+    private static final int LIMITE_VAGAS = 20;
 
-    // Cria um agendamento com validação de vagas por horário
+    // Cria um novo agendamento com validação de vagas por horário
     public Agendamento criarAgendamento(Agendamento agendamento) {
-        // Verifica se o horário já está lotado
         if (isHorarioLotado(agendamento.getDataHora())) {
             throw new IllegalArgumentException("Horário já está cheio, escolha outro.");
         }
-
         return agendamentoRepository.save(agendamento);
-    }
-
-    // Lista todos os agendamentos
-    public List<Agendamento> listarTodosAgendamentos() {
-        return agendamentoRepository.findAll();
     }
 
     // Reagenda uma prova, cancelando o agendamento anterior
@@ -48,9 +41,19 @@ public class AgendamentoService {
         return criarAgendamento(novoAgendamento);
     }
 
-    // Método para verificar se o horário já está lotado
+    // Verifica se o horário já está lotado
     public boolean isHorarioLotado(LocalDateTime dataHora) {
         List<Agendamento> agendamentosNoHorario = agendamentoRepository.findByDataHora(dataHora);
         return agendamentosNoHorario.size() >= LIMITE_VAGAS;
     }
+
+    public List<Agendamento> listarTodosAgendamentos() {
+        return agendamentoRepository.findAll();  // Busca todos os agendamentos no repositório
+    }    
+
+    public Agendamento buscarPorId(Long id) {
+        return agendamentoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Agendamento não encontrado com o ID: " + id));
+    }
+    
 }
