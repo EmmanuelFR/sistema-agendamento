@@ -2,20 +2,27 @@ package com.sistema.agendamento.sistema_agendamento.repositories;
 
 import com.sistema.agendamento.sistema_agendamento.models.Agendamento;
 import org.springframework.data.jpa.repository.JpaRepository;
-// import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+@Repository
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 
-    // Lista todos os agendamentos de um aluno
+    // Encontra todos os agendamentos ativos (não cancelados)
+    List<Agendamento> findByCanceladoFalse();
+
+    // Encontra agendamentos por disciplina
+    List<Agendamento> findByDisciplina(String disciplina);
+
+    // Encontra agendamentos por data e hora
+    List<Agendamento> findByDataHora(LocalDateTime dataHora); // Altere o nome para refletir que está lidando com data e hora
+
+    // Encontra agendamentos para um aluno específico
     List<Agendamento> findByAlunoId(Long alunoId);
 
-    // Lista todos os agendamentos de um aluno em uma data específica
-    List<Agendamento> findByAlunoIdAndData(Long alunoId, Date data);
-    
-    // @Query(value = "SELECT * FROM alunos")
-    // List<Agendamento> ObterReagendamentos(Long alunoId);
-
+    // Encontra agendamentos de uma disciplina em uma data específica
+    List<Agendamento> findByDisciplinaAndDataHora(String disciplina, LocalDateTime dataHora);
 }
