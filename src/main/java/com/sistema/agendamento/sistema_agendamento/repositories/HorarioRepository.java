@@ -7,10 +7,8 @@ import java.util.List;
 
 public interface HorarioRepository extends JpaRepository<Horario, Long> {
 
-    // Custom query method para buscar horários por polo
     List<Horario> findByPoloId(Long poloId);
 
-    // Custom query method para buscar horários dentro de um intervalo de tempo
     List<Horario> findByHorarioInicioBetween(LocalTime inicio, LocalTime fim);
         
 }

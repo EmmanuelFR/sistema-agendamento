@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface ProvaRepository extends JpaRepository<Prova, Long> {
 
-    // Custom query method para listar provas por curso
     List<Prova> findByCursoId(Long cursoId);
 
 }

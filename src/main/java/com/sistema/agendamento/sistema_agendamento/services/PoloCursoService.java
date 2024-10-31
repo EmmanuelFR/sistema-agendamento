@@ -14,27 +14,23 @@ public class PoloCursoService {
     @Autowired
     private PoloCursoRepository poloCursoRepository;
 
-    // Salvar ou atualizar relacionamento Polo-Curso
     public PoloCurso salvarPoloCurso(PoloCurso poloCurso) {
         return poloCursoRepository.save(poloCurso);
     }
 
-    // Buscar relacionamento Polo-Curso por ID
+
     public Optional<PoloCurso> buscarPoloCursoPorId(Long id) {
         return poloCursoRepository.findById(id);
     }
 
-    // Listar todos os cursos de um polo
     public List<PoloCurso> listarCursosPorPolo(Long poloId) {
         return poloCursoRepository.findByPoloId(poloId);
     }
 
-    // Listar todos os polos que oferecem um curso
     public List<PoloCurso> listarPolosPorCurso(Long cursoId) {
         return poloCursoRepository.findByCursoId(cursoId);
     }
 
-    // Deletar relacionamento Polo-Curso
     public void deletarPoloCurso(Long id) {
         poloCursoRepository.deleteById(id);
     }

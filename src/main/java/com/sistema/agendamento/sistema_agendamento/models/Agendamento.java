@@ -20,14 +20,14 @@ public class Agendamento {
     private String disciplina;
 
     @Column(name = "data_hora", nullable = false)
-    private LocalDateTime dataHora;  // Captura data e hora juntos
+    private LocalDateTime dataHora;
 
     @ManyToOne
     @JoinColumn(name = "reagendamento_id")
-    private Agendamento reagendamento;  // Referencia o agendamento anterior (se houver reagendamento)
+    private Agendamento reagendamento;
 
     @Column(name = "cancelado", nullable = false)
-    private boolean cancelado = false;  // Indica se o agendamento foi cancelado
+    private boolean cancelado = false;
 
     // Getters e Setters
     public Long getId() {

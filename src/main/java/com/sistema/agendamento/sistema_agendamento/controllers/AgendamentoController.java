@@ -42,12 +42,10 @@ public ResponseEntity<?> criarAgendamento(@RequestBody Agendamento agendamento) 
         Agendamento novoAgendamento = agendamentoService.criarAgendamento(agendamento);
         return ResponseEntity.ok(novoAgendamento);
     } catch (IllegalArgumentException e) {
-        // Retorna um status de erro 409 Conflict com a mensagem de erro
         return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage()); 
     }
 }
 
-    // Reagendar prova e cancelar agendamento anterior
     @PutMapping("/reagendar/{id}")
     public ResponseEntity<?> reagendarProva(@PathVariable Long id, @RequestBody Agendamento novoAgendamento) {
         // Verifica o limite de agendamentos para o novo horário
@@ -58,7 +56,6 @@ public ResponseEntity<?> criarAgendamento(@RequestBody Agendamento agendamento) 
         return ResponseEntity.ok(agendamentoReagendado);
     }
 
-    // Lista todos os agendamentos
     @GetMapping
     public ResponseEntity<List<Agendamento>> listarTodosAgendamentos() {
         List<Agendamento> agendamentos = agendamentoService.listarTodosAgendamentos();

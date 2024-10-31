@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface CursoRepository extends JpaRepository<Curso, Long> {
 
-    // Buscar cursos por Polo
     List<Curso> findByPolo_Id(Long poloId);
     
 }

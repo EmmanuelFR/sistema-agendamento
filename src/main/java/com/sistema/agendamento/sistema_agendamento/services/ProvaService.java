@@ -14,22 +14,18 @@ public class ProvaService {
     @Autowired
     private ProvaRepository provaRepository;
 
-    // Salvar ou atualizar uma prova
     public Prova salvarProva(Prova prova) {
         return provaRepository.save(prova);
     }
 
-    // Buscar uma prova por ID
     public Optional<Prova> buscarProvaPorId(Long id) {
         return provaRepository.findById(id);
     }
 
-    // Listar todas as provas
     public List<Prova> listarProvas() {
         return provaRepository.findAll();
     }
 
-    // Deletar uma prova
     public void deletarProva(Long id) {
         provaRepository.deleteById(id);
     }

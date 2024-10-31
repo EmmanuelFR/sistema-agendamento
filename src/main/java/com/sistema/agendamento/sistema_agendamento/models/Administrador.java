@@ -7,7 +7,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "administradores")
 public class Administrador extends Usuario {
-    // Atributos específicos de Administrador
 
     @Id
     private long id;

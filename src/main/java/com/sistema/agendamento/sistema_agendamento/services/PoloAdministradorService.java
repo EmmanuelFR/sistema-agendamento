@@ -14,22 +14,18 @@ public class PoloAdministradorService {
     @Autowired
     private PoloAdministradorRepository poloAdministradorRepository;
 
-    // Salvar ou atualizar um relacionamento Polo-Administrador
     public PoloAdministrador salvarPoloAdministrador(PoloAdministrador poloAdministrador) {
         return poloAdministradorRepository.save(poloAdministrador);
     }
 
-    // Buscar relacionamento Polo-Administrador por ID
     public Optional<PoloAdministrador> buscarPoloAdministradorPorId(Long id) {
         return poloAdministradorRepository.findById(id);
     }
 
-    // Listar todos os relacionamentos Polo-Administrador
     public List<PoloAdministrador> listarPoloAdministradores() {
         return poloAdministradorRepository.findAll();
     }
 
-    // Deletar relacionamento Polo-Administrador
     public void deletarPoloAdministrador(Long id) {
         poloAdministradorRepository.deleteById(id);
     }

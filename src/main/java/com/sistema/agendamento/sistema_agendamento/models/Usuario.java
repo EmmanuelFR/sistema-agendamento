@@ -1,9 +1,8 @@
-    package com.sistema.agendamento.sistema_agendamento.models;
+package com.sistema.agendamento.sistema_agendamento.models;
 
 import jakarta.persistence.*;
 
 @Entity
-// Estratégia de herança
 @Inheritance(strategy = InheritanceType.JOINED) 
 @Table(name = "usuarios")
 public class Usuario {

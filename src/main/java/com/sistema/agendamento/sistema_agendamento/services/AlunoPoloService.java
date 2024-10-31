@@ -14,22 +14,18 @@ public class AlunoPoloService {
     @Autowired
     private AlunoPoloRepository alunoPoloRepository;
 
-    // Salvar ou atualizar AlunoPolo
     public AlunoPolo salvarAlunoPolo(AlunoPolo alunoPolo) {
         return alunoPoloRepository.save(alunoPolo);
     }
 
-    // Buscar AlunoPolo por ID
     public Optional<AlunoPolo> buscarAlunoPoloPorId(Long id) {
         return alunoPoloRepository.findById(id);
     }
 
-    // Listar todos os polos em que um aluno está matriculado
     public List<AlunoPolo> listarPolosPorAluno(Long alunoId) {
         return alunoPoloRepository.findByAlunoId(alunoId);
     }
 
-    // Deletar AlunoPolo
     public void deletarAlunoPolo(Long id) {
         alunoPoloRepository.deleteById(id);
     }

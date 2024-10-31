@@ -12,7 +12,6 @@ public class Aluno {
 
     private String nome;
 
-    // Relacionamento com Curso - Muitos alunos podem pertencer a um curso
     @ManyToOne
     @JoinColumn(name = "curso_id")
     private Curso curso;
@@ -42,65 +41,3 @@ public class Aluno {
         this.curso = curso;
     }
 }
-
-
-
-
-// package com.sistema.agendamento.sistema_agendamento.models;
-
-// import jakarta.persistence.Entity;
-// import jakarta.persistence.Id;
-// import jakarta.persistence.JoinColumn;
-// import jakarta.persistence.ManyToOne;
-// import jakarta.persistence.Table;
-
-// @Entity
-// @Table(name = "alunos")
-// public class Aluno extends Usuario {
-//     // Atributos específicos de Aluno
-
-//     @Id
-//     private long id;
-
-//     private String matricula;
-
-//     //private String curso;
-
-//     @ManyToOne
-//     @JoinColumn(name = "curso_id")
-//     private Curso curso;
-
-//     // Getters e Setters
-//     public long getIdAluno() {
-//         return id;
-//     }
-
-//     public void setIdAluno(long id) {
-//         this.id = id;
-//     }
-
-//     public String getMatricula() {
-//         return matricula;
-//     }
-
-//     public void setMatricula(String matricula) {
-//         this.matricula = matricula;
-//     }
-
-//     public Curso getCurso() {
-//         return curso;
-//     }
-
-//     public void setCurso(Curso curso) {
-//         this.curso = curso;
-//     }
-
-//     // public String getCurso() {
-//     //     return curso;
-//     // }
-
-//     // public void setCurso(String curso) {
-//     //     this.curso = curso;
-//     // }
-
-// }

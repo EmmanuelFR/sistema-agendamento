@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface PoloAdministradorRepository extends JpaRepository<PoloAdministrador, Long> {
 
-    // Custom query method para listar administradores por polo
     List<PoloAdministrador> findByPoloId(Long poloId);
 
 }

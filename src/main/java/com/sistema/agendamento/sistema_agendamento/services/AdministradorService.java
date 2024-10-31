@@ -15,22 +15,18 @@ public class AdministradorService {
     @Autowired
     private AdministradorRepository administradorRepository;
 
-    // Salvar ou atualizar um administrador
     public Administrador salvarAdministrador(Administrador administrador) {
         return administradorRepository.save(administrador);
     }
 
-    // Buscar um administrador por ID
     public Optional<Administrador> buscarAdministradorPorId(Long id) {
         return administradorRepository.findById(id);
     }
 
-    // Listar todos os administradores
     public List<Administrador> listarAdministradores() {
         return administradorRepository.findAll();
     }
 
-    // Deletar um administrador
     public void deletarAdministrador(Long id) {
         administradorRepository.deleteById(id);
     }

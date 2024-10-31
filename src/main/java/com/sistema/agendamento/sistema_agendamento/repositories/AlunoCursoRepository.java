@@ -6,10 +6,8 @@ import java.util.List;
 
 public interface AlunoCursoRepository extends JpaRepository<AlunoCurso, Long> {
 
-    // Custom query method para buscar cursos por aluno
     List<AlunoCurso> findByAlunoId(Long alunoId);
 
-    // Custom query method para buscar alunos por curso
     List<AlunoCurso> findByCursoId(Long cursoId);
     
 }

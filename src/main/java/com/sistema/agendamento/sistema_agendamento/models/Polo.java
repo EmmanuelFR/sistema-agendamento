@@ -7,7 +7,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "polos")
 public class Polo extends Usuario {
-    // Atributos específicos de Polo
 
     @Id
     private long id;

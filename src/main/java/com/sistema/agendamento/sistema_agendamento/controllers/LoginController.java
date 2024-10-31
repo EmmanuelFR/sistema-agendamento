@@ -7,7 +7,7 @@ import com.sistema.agendamento.sistema_agendamento.dto.LoginRequest;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000")  // Adiciona CORS para o frontend
+@CrossOrigin(origins = "http://localhost:3000") 
 public class LoginController {
 
     @PostMapping("/login")

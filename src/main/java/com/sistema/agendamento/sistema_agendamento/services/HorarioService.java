@@ -14,22 +14,18 @@ public class HorarioService {
     @Autowired
     private HorarioRepository horarioRepository;
 
-    // Salvar ou atualizar um horário
     public Horario salvarHorario(Horario horario) {
         return horarioRepository.save(horario);
     }
 
-    // Buscar um horário por ID
     public Optional<Horario> buscarHorarioPorId(Long id) {
         return horarioRepository.findById(id);
     }
 
-    // Listar todos os horários
     public List<Horario> listarHorarios() {
         return horarioRepository.findAll();
     }
 
-    // Deletar um horário
     public void deletarHorario(Long id) {
         horarioRepository.deleteById(id);
     }
