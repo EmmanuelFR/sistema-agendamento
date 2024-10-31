@@ -14,7 +14,7 @@ public class AgendamentoService {
     @Autowired
     private AgendamentoRepository agendamentoRepository;
 
-    private static final int LIMITE_VAGAS = 2;
+    private static final int LIMITE_VAGAS = 1;
 
     public Agendamento criarAgendamento(Agendamento agendamento) {
         if (isHorarioLotado(agendamento.getDataHora())) {
