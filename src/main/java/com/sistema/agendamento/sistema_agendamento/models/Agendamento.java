@@ -29,7 +29,6 @@ public class Agendamento {
     @Column(name = "cancelado", nullable = false)
     private boolean cancelado = false;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

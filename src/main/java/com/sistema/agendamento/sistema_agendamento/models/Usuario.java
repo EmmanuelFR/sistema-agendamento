@@ -22,7 +22,6 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private TipoUsuarioEnum tipoUsuario;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

@@ -10,7 +10,6 @@ public class UsuarioRequest {
     private String cidade;
     private String polo;
 
-    // Construtores
     public UsuarioRequest() {}
 
     public UsuarioRequest(String nome, String email, String telefone, String ra, String curso, String periodo, String cidade, String polo) {
@@ -24,7 +23,6 @@ public class UsuarioRequest {
         this.polo = polo;
     }
 
-    // Getters e Setters
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 

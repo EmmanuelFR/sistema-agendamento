@@ -22,7 +22,6 @@ public class Curso {
     @JoinColumn(name = "polo_id")
     private Polo polo;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

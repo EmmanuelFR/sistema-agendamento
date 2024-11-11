@@ -14,7 +14,6 @@ public class Polo extends Usuario {
     private String nomePolo;
     private String endereco;
 
-    // Getters e Setters
     public long getIdPolo() {
         return id;
     }

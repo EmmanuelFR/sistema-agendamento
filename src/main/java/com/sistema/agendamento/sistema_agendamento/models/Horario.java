@@ -17,7 +17,6 @@ public class Horario {
     private Time horarioInicio;
     private Time duracao;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

@@ -21,7 +21,6 @@ public class Prova {
     private int duracao;
     private String nomeProva;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

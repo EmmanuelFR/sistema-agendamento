@@ -14,7 +14,6 @@ public class Administrador extends Usuario {
     private String setor;
     private Integer permissoes;
 
-    // Getters e Setters
     public long getIdAdministrador() {
         return id;
     }

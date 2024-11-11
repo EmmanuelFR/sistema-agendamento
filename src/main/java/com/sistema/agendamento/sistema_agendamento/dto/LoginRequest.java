@@ -5,7 +5,6 @@ public class LoginRequest {
     private String senha;
     private String tipoUsuario;
 
-    // Construtores
     public LoginRequest() {}
 
     public LoginRequest(String email, String senha, String tipoUsuario) {
@@ -14,7 +13,6 @@ public class LoginRequest {
         this.tipoUsuario = tipoUsuario;
     }
 
-    // Getters e Setters
     public String getEmail() {
         return email;
     }

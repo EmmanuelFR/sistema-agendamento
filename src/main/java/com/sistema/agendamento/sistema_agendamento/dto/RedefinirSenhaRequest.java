@@ -4,7 +4,6 @@ public class RedefinirSenhaRequest {
     private String novaSenha;
     private String confirmarSenha;
 
-    // Getters e Setters
     public String getNovaSenha() {
         return novaSenha;
     }

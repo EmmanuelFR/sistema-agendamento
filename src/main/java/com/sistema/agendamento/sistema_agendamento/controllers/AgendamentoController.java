@@ -17,25 +17,6 @@ public class AgendamentoController {
     @Autowired
     private AgendamentoService agendamentoService;
 
-    // Cria um novo agendamento com verificação de limite por horário
-    // @PostMapping
-    // public ResponseEntity<Agendamento> criarAgendamento(@RequestBody Agendamento agendamento) {
-    // System.out.println("Data recebida no formato ISO: " + agendamento.getDataHora());
-    // Agendamento novoAgendamento = agendamentoService.criarAgendamento(agendamento);
-    // return ResponseEntity.ok(novoAgendamento);
-    // }
-
-//     @PostMapping
-// public ResponseEntity<?> criarAgendamento(@RequestBody Agendamento agendamento) { // Alterado para ResponseEntity<?>
-//     try {
-//         Agendamento novoAgendamento = agendamentoService.criarAgendamento(agendamento);
-//         return ResponseEntity.ok(novoAgendamento);
-//     } catch (IllegalArgumentException e) {
-//         // Retorna um status de erro 409 Conflict com a mensagem de erro
-//         return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage()); 
-//     }
-// }
-
 @PostMapping
 public ResponseEntity<?> criarAgendamento(@RequestBody Agendamento agendamento) {
     try {

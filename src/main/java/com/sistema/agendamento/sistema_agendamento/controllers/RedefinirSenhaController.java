@@ -15,7 +15,6 @@ public class RedefinirSenhaController {
 
     @PostMapping("/api/redefinir-senha")
     public ResponseEntity<?> redefinirSenha(@RequestBody RedefinirSenhaRequest redefinirSenhaRequest) {
-        // Adiciona log para depuração
         System.out.println("Senha atual recebida: " + redefinirSenhaRequest.getNovaSenha());
         
         if ("2413".equals(redefinirSenhaRequest.getNovaSenha()) && "2413".equals(redefinirSenhaRequest.getConfirmarSenha())) {

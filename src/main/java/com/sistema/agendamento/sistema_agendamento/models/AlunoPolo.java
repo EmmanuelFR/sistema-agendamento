@@ -22,7 +22,6 @@ public class AlunoPolo {
 
     private LocalDate dataMatricula;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }
